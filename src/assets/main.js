@@ -24,8 +24,9 @@ function guess() {
         message.innerHTML = 'You Win! :)';
         showAnswer(true);
         showReplay();
-        console.log("attempt: " + attempt.value);
+        
     }
+    console.log("attempt: " + attempt.value);
     if (!res) {
         if (attempt.value >= 10) {
             message.innerHTML = 'You Lose! :(';
@@ -43,7 +44,7 @@ function setHiddenFields() {
     }
     //document.getElementById('answer').value = answer.value;
     if (attempt.value == "") {
-        attempt = 0;
+        attempt.value = 0;
     }
 }
 
