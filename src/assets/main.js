@@ -35,16 +35,13 @@ function guess() {
 
 //implement new functions here
 function setHiddenFields() {
-    if (answer.value == "") {
-        answer.value = Math.floor(Math.random() * 10000).toString();
-        while (answer.value.length < 4) {
-            answer.value = "0" + answer.value;
-        }
-        //document.getElementById('answer').value = answer.value;
+    answer.value = Math.floor(Math.random() * 10000).toString();
+    while (answer.value.length < 4) {
+        answer.value = "0" + answer.value;
     }
+    //document.getElementById('answer').value = answer.value;
     if (attempt.value == "") {
-        console.log("here");
-        document.getElementById('attempt').value = 0;
+        attempt = 0;
     }
 }
 
