@@ -12,16 +12,20 @@ function guess() {
     if (answer.value == "" && attempt.value == "") {
         setHiddenFields();
     }
-    if (validateInput(input.value)) {
-        document.getElementById('attempt').value++;
+
+    if (!validateInput(input.value)) {
+        setMessage("Guesses must be exactly 4 characters long.");
+        return false;
     }
+    document.getElementById('attempt').value++;
+
     if (getResults(input.value)) {
         message.innerHTML = 'You Win! :)';
         showAnswer(true);
         showReplay();
         console.log("attempt: " + attempt.value);
     }
-    console.log("attempt: " + attempt.value);
+
     if (attempt.value >= 10) {
         message.innerHTML = 'You Lose! :(';
         showAnswer(false);
@@ -50,7 +54,6 @@ function setMessage(msg) {
 
 function validateInput(input) {
     if (input.length != 4) {
-        setMessage("Guesses must be exactly 4 characters long.");
         return false;
     }
     return true;
