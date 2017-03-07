@@ -19,16 +19,19 @@ function guess() {
     }
     document.getElementById('attempt').value++;
 
-    if (getResults(input.value)) {
+    var res = getResults(input.value);
+    if (res) {
         message.innerHTML = 'You Win! :)';
         showAnswer(true);
         showReplay();
         console.log("attempt: " + attempt.value);
     }
-    else if (attempt.value >= 10) {
-        message.innerHTML = 'You Lose! :(';
-        showAnswer(false);
-        showReplay();
+    if (!res) {
+        if (attempt.value >= 10) {
+            message.innerHTML = 'You Lose! :(';
+            showAnswer(false);
+            showReplay();
+        }
     }
 }
 
